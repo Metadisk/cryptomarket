@@ -14,8 +14,8 @@ class CoinsRepositoryImpl (
     :CoinRepository{
 
 
-    override suspend fun getCoin(vs_currency: String): Resource<List<Coin>> {
-        return responseToResource(coinRemoteDataSource.getCoin(vs_currency))
+    override suspend fun getCoin(vs_currency: String, per_page: Int, page: Int): Resource<List<Coin>> {
+        return responseToResource(coinRemoteDataSource.getCoin(vs_currency, per_page, page))
     }
 
     private fun responseToResource(response: Response<List<Coin>>):Resource<List<Coin>>{

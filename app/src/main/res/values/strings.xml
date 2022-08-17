@@ -4,7 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="all_coins">All Coins</string>
     <string name="favourites">Favourites</string>
-    <string name="settings">Settings</string>
+    <string name="about">About</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="coins_list_error">Failed to fetch coins list. Please try again.</string>
 
@@ -14,4 +14,5 @@
 
     <string name="historical_data_error">Couldn\'t fetch historical data. Please try again</string>
     <string name="line_chart_title">Price Chart for %1$s days\n(x-axis: Date, y-axis: Price in $)</string>
+    <string name="search">Search</string>
 </resources>

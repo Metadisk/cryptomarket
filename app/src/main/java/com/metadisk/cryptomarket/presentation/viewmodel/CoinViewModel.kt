@@ -21,12 +21,13 @@ class CoinViewModel(
 
     val coins: MutableLiveData<Resource<List<Coin>>> = MutableLiveData()
 
-    fun getCoins(vs_currency: String) = viewModelScope.launch(Dispatchers.IO) {
+
+    fun getCoins(vs_currency: String, per_page: Int, page: Int) = viewModelScope.launch(Dispatchers.IO) {
         coins.postValue(Resource.Loading())
         try {
             if (isNetworkAvailable(app)) {
 
-                val apiResult = getCoinsUsecase.execute(vs_currency)
+                val apiResult = getCoinsUsecase.execute(vs_currency, per_page, page)
                 coins.postValue(apiResult)
             } else {
                 coins.postValue(Resource.Error("Internet is not available"))
@@ -38,11 +39,6 @@ class CoinViewModel(
 
     }
 
-    fun updateFavouriteStatus(symbol: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-
-        }
-    }
 
     private fun isNetworkAvailable(context: Context?): Boolean {
         if (context == null) return false
@@ -73,29 +69,5 @@ class CoinViewModel(
         return false
 
     }
-
-    //local data
-    suspend fun saveCoinsToDB(vs_currency: String)= viewModelScope.launch {
-        getCoinsUsecase.execute(vs_currency)
-    }
-    fun getSavedCoins(vs_currency: String)= viewModelScope.launch {
-        getCoinsUsecase.execute(vs_currency)
-    }
-    suspend fun deleteCoinsFromDB(vs_currency: String)= viewModelScope.launch {
-        getCoinsUsecase.execute(vs_currency)
-    }
-    fun getSavedSymbols(vs_currency: String)= viewModelScope.launch {
-        getCoinsUsecase.execute(vs_currency)
-    }
-    fun getSavedFavorites(vs_currency: String)= viewModelScope.launch {
-        getCoinsUsecase.execute(vs_currency)
-    }
-    fun updatedCoins(vs_currency: String)= viewModelScope.launch {
-        getCoinsUsecase.execute(vs_currency)
-    }
-    fun insertCoins(vs_currency: String)= viewModelScope.launch {
-        getCoinsUsecase.execute(vs_currency)
-    }
-
 
 }

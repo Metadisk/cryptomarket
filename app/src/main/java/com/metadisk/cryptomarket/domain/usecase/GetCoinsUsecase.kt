@@ -6,7 +6,7 @@ import com.metadisk.cryptomarket.domain.repository.CoinRepository
 
 class GetCoinsUsecase (private val coinRepository: CoinRepository) {
 
-    suspend fun execute(vs_currency : String): Resource<List<Coin>> {
-        return coinRepository.getCoin(vs_currency)
+    suspend fun execute(vs_currency : String, per_page: Int, page: Int): Resource<List<Coin>> {
+        return coinRepository.getCoin(vs_currency, per_page, page)
     }
 }

@@ -21,8 +21,7 @@ class CoinLocalDataSourceImpl(
     }
 
     override fun getSavedSymbols(symbol: String): Flow<List<Coin>> {
-        return coinDAO.projectFromSymbol(symbol)
+        return coinDAO.coinsSearch(symbol)
     }
-
 
 }

@@ -1,5 +1,6 @@
 package com.metadisk.cryptomarket.presentation.di
 
+import com.metadisk.cryptomarket.data.model.Coin
 import com.metadisk.cryptomarket.presentation.adapter.CoinsAdapter
 import dagger.Module
 import dagger.Provides
@@ -13,6 +14,6 @@ class AdapterModule {
    @Singleton
    @Provides
    fun provideCoinsAdapter(): CoinsAdapter {
-       return CoinsAdapter()
+       return CoinsAdapter( coins= ArrayList(), coinsFilter= ArrayList())
    }
 }

@@ -9,7 +9,4 @@ interface CoinLocalDataSource {
     fun getSavedCoins(): Flow<List<Coin>>
     suspend fun deleteCoinsFromDB()
     fun getSavedSymbols(symbol: String): Flow<List<Coin>>
-    //fun getSavedFavorites(): Flow<List<Coin>>
-    //fun updatedCoins(): List<Coin>
-    //fun insertCoins(): List<Coin>
 }

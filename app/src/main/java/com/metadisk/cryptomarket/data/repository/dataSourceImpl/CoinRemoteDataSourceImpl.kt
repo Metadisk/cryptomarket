@@ -9,7 +9,7 @@ import retrofit2.Response
 class CoinRemoteDataSourceImpl(
     private val  coinAPIService: CoinAPIService): CoinRemoteDataSource {
 
-    override suspend fun getCoin(vs_currency: String): Response<List<Coin>> {
-        return coinAPIService.coinsList(vs_currency)
+    override suspend fun getCoin(vs_currency: String, per_page: Int, page: Int): Response<List<Coin>> {
+        return coinAPIService.coinsList(vs_currency, per_page, page)
     }
 }

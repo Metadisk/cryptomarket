@@ -2,10 +2,6 @@ package com.metadisk.cryptomarket
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -21,14 +17,15 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var factory: CoinViewModelFactory
+
     @Inject
     lateinit var coinsAdapter: CoinsAdapter
     lateinit var  viewModel: CoinViewModel
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -44,6 +41,4 @@ class MainActivity : AppCompatActivity() {
             .get(CoinViewModel::class.java)
 
     }
-
-
 }
